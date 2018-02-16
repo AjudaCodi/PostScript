@@ -1,0 +1,42 @@
+%!PS-Adobe-3.0 EPSF-3.0
+%%BoundingBox: -50 -50 100 100
+%%BeginProlog
+% define and assign the scale
+% note: 1 cm = 28.34645 points,
+%     1 inch = 72 points.
+/s 28.34645 def
+%%EndProlog
+s s scale
+1 s div setlinewidth
+/dir
+{
+	dup	% angle angle
+	cos	% angle cos
+	exch	% cos angle
+	sin	% cos sin
+} def
+
+/make-polygon
+{
+	dup	% Nombre Nombre
+	360 exch% Nombre 360 Nombre
+	div	% Nombre Increment
+	exch	% Increment Nombre
+	0 exch	% Increment Angle Nombre
+stack
+(Increment Angle Nombre?) ==
+	newpath
+		0 dir moveto
+		{ % Menja el nombre? Sí!
+			dup dir lineto
+			exch dup	% Angle Increment Increment
+			3 1 roll	% Increment Angle Increment
+			add		% Increment Angle_Nou
+		} repeat
+	closepath
+	stroke
+} def
+
+90 make-polygon
+showpage
+%%EOF

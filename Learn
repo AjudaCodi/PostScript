@@ -1,0 +1,68 @@
+Pàgina 23 01, 3.2.4 Exercici 20
+newpath
+ x   y
+\d+ \d+ moveto		Moures
+\d+ \d+ lineto		Dibuixar
+\d+ \d+ rlineto
+\d+ \d+ rmoveto
+closepath		Tancar la figura
+5 setlinewidth		Definir grossor
+stroke			Acabar dibuix
+
+Defecte GhostScript lletra en US ≡ 8.5 x 11 inches
+Europa A4 8.3 x 11.7
+
+Forçar D4, escriure: (a4)
+
+LaTeX, graphicx
+
+Calcular el tamany
+gs -dNOPAUSE -dBATCH -q -sDEVICE=bbox file.ps
+
+
+Operadors
+	sub add div mul
+	idiv (integral part)
+	mod abs neg
+	ceiling floor round truncate
+	atan
+	cos sin (amb graus)
+	exp log
+	rand (0 i 2³¹ -1
+
+Pila
+	dup	Clona l'últim element
+	exch	Canvia l'últim pel penúltim.
+	clear	Elimina tot
+	cleartomark		??
+	copy	Copia els n elements	obj1 ... objn n copy ⇒ obj1 ... objn obj1 ... objn
+	count	Conta el nombre d'elements a pila
+	counttomark		??
+	index	objn ... obj0 n index ⇒ objn ... obj0 objn
+	mark	push mark
+	pop
+	roll	objn-1 ... obj0 n j roll ⇒ obj(j-1)mod n ... obj0 objn-1 ... objj
+		a b c d 3 1 roll  ⇒ a d b c
+		a b c d 3 -1 roll ⇒ a c d b
+
+Vector
+	aload	Transforma un vector i els afegeix a la pila
+	array astore Transforma la pila en un vector
+
+Depurar
+	stack
+
+Grafics
+	gsave		Guarda en una pila la imatge que no s'ha mostrat (push)
+	grestore	Carrega la imatge que s'havia guardat en format pila (pop)
+	0 0 0 setrgbcolor
+	0 setgray
+
+	x y moveto
+	x y rmoveto
+	x y lineto
+	x y rlineto
+
+	x y r angle₁ angle₂ arc		(angle₂ és la suma dels dos angles)
+	x y r angle₁ angle₂ arcn	(angle₂ és la suma dels dos angles)
+	x1 y1 x2 y2 r arct		p1 és fins on hauria d'anar i p2 és el següent punt

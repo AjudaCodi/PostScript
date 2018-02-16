@@ -1,0 +1,38 @@
+%!PS-Adobe-3.0 EPSF-3.0
+%%BoundingBox: -1 -1 361 73
+%%BeginProlog
+/s 72 def
+%%EndProlog
+% Fletxa
+% quadrat gris 5 x 1 inch
+% Fletxa 4 llarg Total, vermella
+% grossor 0.3
+% Cap 1 llarg
+% grossor 0.8
+% gs -dNOPAUSE -dBATCH -q -sDEVICE=bbox file.ps
+
+% 1er el quadrat.
+newpath
+0 s 2 div moveto
+s 5 mul 0 rlineto
+0.5 setgray
+s setlinewidth
+stroke
+
+% Per simplificar els càlculs
+s 2 div s 2 div translate
+1 0 0 setrgbcolor
+newpath % Cos de la fletxa
+0 0 moveto
+s 3 mul 0 rlineto
+s 0.3 mul setlinewidth
+stroke
+newpath % Cap de la fletxa
+s 3 mul s -0.4 mul moveto
+0 s 0.8 mul rlineto
+s s -0.4 mul rlineto
+closepath
+fill
+
+showpage
+%%EOF

@@ -1,0 +1,37 @@
+%!PS-Adobe-3.0 EPSF-3.0
+/addvecLocal
+{
+	% Preparem les variables
+	aload pop	% v1 v2x v2y
+	3 -1 roll	% v2x v2y v1
+	aload pop	% v2x v2y v1x v1y
+
+	4 dict begin % 3 locals variables
+		/v1y exch def
+		/v1x exch def
+		/v2y exch def
+		/v2x exch def
+		[ v1x v2x add v1y v2y add ]
+	end
+} def
+
+/addvecPila
+{
+	% Preparem les variables
+	aload pop	% v1 v2x v2y
+	3 -1 roll	% v2x v2y v1
+	aload pop	% v2x v2y v1x v1y
+
+	% Operem
+	3 -1 roll	% v2x v1x v1y v2y
+	add		% v2x v1x vy
+	3 1 roll	% vy v2x v1x
+	add		% vy vx
+	exch		% vx vy
+	2 array astore	%[vx vy]
+} def
+
+[1 2.74] == [4 5] ==
+[1 2.74] [4 5] addvecLocal ==
+[1 2.74] [4 5] addvecPila ==
+%%EOF

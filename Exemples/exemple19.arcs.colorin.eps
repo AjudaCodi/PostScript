@@ -1,0 +1,53 @@
+%!PS-Adobe-3.0 EPSF-3.0
+%%BoundingBox: -10 -41 71 90
+%%BeginProlog
+/cm {28.34645 mul} def
+%%EndProlog
+
+
+%	x y r angle₁ angle₂ arc		(angle₂ és la suma dels dos angles)
+newpath
+	1.1 cm	2 cm	0.2 cm	0 360 arc % closepath
+	1.6 cm 2.6 cm moveto % Treu una línia molesta
+	1.4 cm	2.6 cm	0.2 cm	0 360 arc % closepath
+	2.1 cm	2 cm moveto
+	1.1 cm	2 cm	1 cm	360 0 arcn % closepath % Potser és bona praxis fer-los anar
+gsave
+	0.5 setgray
+	fill
+grestore
+	stroke
+
+% Segon dibuix
+newpath
+	1.1 cm	0	0.8 cm	0 90 arc
+	1.1 cm	0	0.4 cm	90 0 arcn
+	closepath
+gsave
+	0.5 setgray
+	fill
+grestore
+	stroke
+
+% Tercer dibuix
+newpath
+	0 -1.3 cm moveto
+	0 -1.3 cm 2 cm 10 30 arc
+	closepath
+0.1 setlinewidth
+stroke
+
+newpath
+	0 -1.3 cm 2 cm 10 30 arc
+	0 -1.3 cm 1.7 cm 30 10 arcn
+	closepath
+gsave
+	1 1 0 setrgbcolor
+	fill
+grestore
+	1 setlinewidth
+	stroke
+
+
+showpage
+%%EOF

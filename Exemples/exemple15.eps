@@ -1,0 +1,36 @@
+%!PS-Adobe-3.0 EPSF-3.0
+%%BoundingBox: -5 -5 152 117
+%%BeginProlog
+% define and assign the scale
+% note: 1 cm = 28.34645 points,
+%     1 inch = 72 points.
+/s 28.34645 def
+%%EndProlog
+s s scale
+1 s div setlinewidth
+newpath
+	% Triangle agut
+	0 0 moveto
+	5 0 lineto
+	1 4 lineto
+closepath
+	% medianes dibuixades
+	3 2 lineto
+	5 0 moveto 0.5 2 lineto
+	1 4 moveto 2.5 0 lineto
+
+stroke
+
+/point { moveto 0 0 rlineto } def
+
+newpath
+	% Punts a les interseccions
+	1 setlinecap % Definim decoració de les línies.
+	0.2 setlinewidth
+	2 1.33333333 point % centre
+	0 0 point 5 0 point 1 4 point % puntes
+	3 2 point 0.5 2 point 2.5 0 point % laterals
+
+stroke
+showpage
+%%EOF

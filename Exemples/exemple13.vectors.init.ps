@@ -1,0 +1,68 @@
+%!PS-Adobe-3.0 EPSF-3.0
+%%BoundingBox: 0 0 74 74
+newpath 1 1 moveto 72 0 rlineto
+0 72 rlineto -72 0 rlineto
+closepath stroke
+
+% Cercles xD
+1 setlinecap % Definim decoració de les línies.
+newpath 10 20 moveto 0 0 rlineto stroke
+2 setlinewidth
+newpath 20 30 moveto 0 0 rlineto stroke
+4 setlinewidth
+newpath 30 40 moveto 0 0 rlineto stroke
+8 setlinewidth
+newpath 40 50 moveto 0 0 rlineto stroke
+newpath 50 60 moveto 0 0 rlineto stroke
+
+% Entrant vectors
+/v [10 20] def
+v ==
+/xcoord {0 get} def
+/ycoord {1 get} def
+v xcoord ==
+v ycoord ==
+
+% Multiplicació escalar?
+/scalarmul % c [a b]
+{
+	3 dict begin % 3 locals variables
+		aload pop % c a b on stack // Vector a la pila
+		/b exch def
+		/a exch def
+		/c exch def
+		[c a mul c b mul]
+	end
+} def
+
+/scalarmul2
+{			% c [a b]
+	aload pop	% c a b
+	3 -1 roll	% a b c
+	dup		% a b c c
+	3 1 roll	% a c b c
+	mul		% a c bc
+	3 1 roll	% bc a c
+	mul		% bc ac
+	exch		% ac bc
+	2 array astore	% [ac bc]
+} def
+
+/scalarmul3
+{ % Es feia evident que podia evitar un pas
+	aload pop	% c a b
+	3 -1 roll	% a b c
+	dup		% a b c c
+	4 -1 roll	% b c c a
+	mul		% b c ca
+	3 1 roll	% ca b c
+	mul		% ca bc
+	2 array astore	% [ca bc]
+} def
+
+v ==
+3 v scalarmul ==
+1.5 [3 6] scalarmul2 ==
+3 v scalarmul3 ==
+showpage
+%%EOF

@@ -1,0 +1,42 @@
+%!PS-Adobe-3.0 EPSF-3.0
+%%BoundingBox: -3 -3 145 60
+%%BeginProlog
+/cm {28.34645 mul} def
+/userD {0.1 cm mul} def
+%%EndProlog
+
+1 userD 5 div setlinewidth
+/square
+{
+translate
+newpath
+	-0.5 userD	-0.5 userD	moveto
+	1 userD		0		rlineto
+	0		1 userD		rlineto
+	-1 userD	0		rlineto
+	closepath
+gsave
+	1 setgray
+	fill
+grestore
+	0 setgray
+stroke
+} def
+
+newpath
+	0	0	moveto
+	1 cm	1 cm	lineto
+	2 cm	0	lineto
+	3 cm	0	lineto
+	5 cm	2 cm	lineto
+1 0 0 setrgbcolor
+stroke
+
+0	0	square
+1 cm	1 cm	square
+1 cm	-1 cm	square
+1 cm	0	square
+1 cm	1 cm	square
+1 cm	1 cm	square
+showpage
+%%EOF

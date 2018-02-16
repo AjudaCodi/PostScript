@@ -1,0 +1,15 @@
+% Arccos 0 ≤ x ≤ 180
+% Diu algo (x, sqrt(h² - x²))
+
+/acos
+{
+	/h exch def
+	/x exch def
+	h dup mul x dup mul sub sqrt x atan
+} def
+
+1 2 acos		==
+-1 2 acos		==
+3 sqrt neg 2 acos	==
+1 1 acos		==
+-1 1 acos		==
