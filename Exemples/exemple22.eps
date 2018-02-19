@@ -1,0 +1,31 @@
+/angle {exch atan} def
+/dir {dup cos exch sin} def
+
+/addvec
+{		% a b c d
+	3 -1 roll % a c d b
+	add	% a c b+d
+	3 1 roll % b+d a c
+	add
+	exch
+} def
+
+/subvec
+{		% a b c d
+	3 -1 roll % a c d b
+	sub neg	% a c b+d
+	3 1 roll % b+d a c
+	sub
+	exch
+} def
+
+/scalarvec
+{
+	3 -1 roll
+	dup
+	3 1 roll
+	mul
+	3 1 roll
+	mul
+	exch % ac bc
+} def

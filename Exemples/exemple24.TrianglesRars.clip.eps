@@ -1,0 +1,112 @@
+%!PS-Adobe-3.0 EPSF-3.0
+%%BoundingBox: 0 0 170 105
+%%BeginProlog
+/angle {exch atan} def
+/dir {dup cos exch sin} def % En quina direcció has d'anar
+
+/addvec
+{		% a b c d
+	3 -1 roll % a c d b
+	add	% a c b+d
+	3 1 roll % b+d a c
+	add
+	exch
+} def
+
+/subvec
+{		% a b c d
+	3 -1 roll % a c d b
+	sub neg	% a c b+d
+	3 1 roll % b+d a c
+	sub
+	exch
+} def
+
+/scalarvec
+{ % c a b
+	3 -1 roll
+	dup
+	3 1 roll
+	mul
+	3 1 roll
+	mul
+	exch % ac bc
+} def
+/cm {28.34645 mul} def
+/s 28.34645  def
+/A {0 0} def
+/B {5 0} def
+/C {2 3} def
+/trianglepath
+{
+	newpath
+		A moveto
+		B lineto
+		C lineto
+	closepath
+} def
+%%EndProlog
+
+s dup scale 1 s div setlinewidth
+12 s div 5 s div translate
+
+% Draw the triangle with vertices A B C
+trianglepath stroke
+
+gsave % ?? !!! clip drawing
+	trianglepath clip % Evita que sobresurti!
+	% Gamma is the bisector angle at C
+	/gamma {A C subvec angle 2 div
+	        B C subvec angle 2 div add} def
+	newpath C moveto
+	10 gamma dir scalarvec stack rlineto
+	stroke
+grestore
+% draw labels
+/Times-Roman findfont 12 s div scalefont setfont
+A 0.4 0 subvec moveto (A) show
+B 0.1 0 addvec moveto (B) show
+C -0.15 0.15 addvec moveto (C) show
+
+% Deures no trivials, sobretot per la mandra a entendre-ho xD
+newpath
+		C
+		0.5
+		A C subvec angle
+		B C subvec angle
+	arc
+stroke
+
+newpath
+	C moveto
+	0.4
+	gamma 2 div
+	A C subvec angle 2 div add
+	dir scalarvec rmoveto
+	0.2
+	gamma 2 div
+	A C subvec angle 2 div add
+	dir scalarvec rlineto
+
+	C moveto
+	0.4
+	gamma 2 div
+	B C subvec angle 2 div add
+	dir scalarvec rmoveto
+	0.2
+	gamma 2 div
+	B C subvec angle 2 div add
+	dir scalarvec rlineto
+stroke
+
+newpath
+	A 0.1 0 360 arc fill
+	B 0.1 0 360 arc fill
+	C 0.1 0 360 arc fill
+	%0.5 A B addvec scalarvec 0.1 0 360 arc fill
+	
+	%3 gamma dir scalarvec rlineto El 3 calculat manualment xD
+	C 3 gamma dir scalarvec addvec  0.1 0 360 arc fill
+stack
+showpage
+%%EOF

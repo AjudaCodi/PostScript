@@ -1,4 +1,4 @@
-Pàgina 23 01, 3.2.4 Exercici 20
+Pàgina 27 01, 3.4 Exercici 25
 newpath
  x   y
 \d+ \d+ moveto		Moures
@@ -19,6 +19,8 @@ LaTeX, graphicx
 Calcular el tamany
 gs -dNOPAUSE -dBATCH -q -sDEVICE=bbox file.ps
 
+HEAD
+%%BoundingBox: x1 y1 x2 y2 (p1 és el punt més avall a l'esquerra i el p2 amunt a la dreta "no relatiu")
 
 Operadors
 	sub add div mul
@@ -63,6 +65,20 @@ Grafics
 	x y lineto
 	x y rlineto
 
+	setlinecap
+	setlinewidth
+
 	x y r angle₁ angle₂ arc		(angle₂ és la suma dels dos angles)
 	x y r angle₁ angle₂ arcn	(angle₂ és la suma dels dos angles)
 	x1 y1 x2 y2 r arct		p1 és fins on hauria d'anar i p2 és el següent punt
+
+	x1 y1 x2 y2 x3 y3 curveto	Bézier 4 points
+
+Bézier
+	P(t) = (1-t)³P₀ + 3(1-t)²tP₁ + 3(1-t)t²P₂ + t³P₃
+
+
+5 5 translate
+
+Lletres
+	/Times-Roman findfont 12 s div scalefont setfont

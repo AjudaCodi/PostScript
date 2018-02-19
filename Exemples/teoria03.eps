@@ -1,0 +1,43 @@
+%!PS-Adobe-3.0 EPSF-3.0
+%%BoundingBox: 0 0 82 340
+%%BeginProlog
+/closedpoint
+{
+	1.5 0 360 arc
+	gsave
+		0 setgray
+		fill
+	grestore
+stroke
+} def
+/openpoint
+{
+	1.5 0 360 arc
+	gsave
+		1 setgray
+		fill
+	grestore
+stroke
+} def
+/cm {28.34645 mul} def
+%%EndProlog
+
+5 5 translate
+%%%%%%%%%%%% Example 1
+newpath % Draw gray lines
+0.6 setgray
+0 300 moveto 0 330 lineto
+72 300 moveto 42 300 lineto
+stroke
+
+0 setgray
+newpath % Draw bezier curve
+0 300 moveto
+0 330 42 300 72 300 curveto
+stroke
+
+newpath % Draw points
+0 300 closedpoint 72 300 closedpoint
+0 330 openpoint 42 300 openpoint
+showpage
+%%EOF
